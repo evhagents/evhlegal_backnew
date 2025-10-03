@@ -1,0 +1,15 @@
+NON-DISCLOSURE AGREEMENT
+
+This is a sample NDA document for testing.
+
+PARTIES:
+Disclosing Party: TechCorp Inc.
+Receiving Party: StartupCo LLC
+
+CONFIDENTIAL INFORMATION:
+All proprietary business information disclosed during discussions.
+
+EFFECTIVE DATE: January 15, 2024
+
+OBLIGATIONS:
+The Receiving Party agrees to maintain confidentiality of all Confidential Information.

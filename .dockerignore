@@ -1,0 +1,28 @@
+# VCS
+.git
+.gitignore
+
+# Mix build artifacts
+/_build
+/deps
+/cover
+
+# Editor/OS
+/.elixir_ls
+/.idea
+/.vscode
+.DS_Store
+Thumbs.db
+
+# Node artifacts
+/assets/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test and misc
+/test
+/tmp
+
+# Render caches (if any)
+/.render

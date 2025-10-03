@@ -1,0 +1,38 @@
+NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement (this "Agreement") is entered into on January 15, 2024 (the "Effective Date") by and between:
+
+DISCLOSING PARTY: TechCorp Inc., a Delaware corporation
+RECEIVING PARTY: StartupCo LLC, a California limited liability company
+
+DEFINITIONS
+"Confidential Information" means all non-public, proprietary information disclosed by the Disclosing Party to the Receiving Party.
+
+CONFIDENTIAL INFORMATION
+The Disclosing Party may disclose technical specifications, business plans, financial information, and other proprietary data to the Receiving Party.
+
+EXCLUSIONS
+The following information shall not be considered Confidential Information:
+(a) Information that is publicly available
+(b) Information independently developed by the Receiving Party
+
+OBLIGATIONS
+The Receiving Party agrees to:
+1. Maintain confidentiality of all Confidential Information
+2. Use the information solely for evaluation purposes
+3. Not disclose to third parties without written consent
+
+TERM
+This Agreement shall remain in effect for a period of three (3) years from the Effective Date.
+
+RETURN OF MATERIALS
+Upon termination, the Receiving Party shall return or destroy all Confidential Information.
+
+REMEDIES
+The Disclosing Party may seek injunctive relief for any breach of this Agreement.
+
+GOVERNING LAW
+This Agreement shall be governed by the laws of the State of Delaware.
+
+MISCELLANEOUS
+This Agreement constitutes the entire agreement between the parties.

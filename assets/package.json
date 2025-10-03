@@ -1,0 +1,23 @@
+{
+  "name": "evhlegalchat-assets",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Assets for Evhlegalchat Phoenix app",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "echo 'Build handled by Mix/Esbuild'",
+    "dev": "echo 'Dev handled by Mix/Esbuild'"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "react": "^19.1.1",
+    "chart.js": "^4.5.0",
+    "mermaid": "^11.3.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.1.1",
+    "three": "^0.160.0",
+    "phoenix": "file:../deps/phoenix",
+    "phoenix_html": "file:../deps/phoenix_html",
+    "phoenix_live_view": "file:../deps/phoenix_live_view"
+  }
+}

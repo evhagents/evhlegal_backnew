@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* See the Tailwind configuration guide for advanced usage
+   https://tailwindcss.com/docs/configuration */
+
+@import "tailwindcss" source(none);
+@source "../css";
+@source "../js";
+@source "../../lib/evhlegalchat_web";
+
+/* A Tailwind plugin that makes "hero-#{ICON}" classes available.
+   The heroicons installation itself is managed by your mix.exs */
+@plugin "../vendor/heroicons";
+
+/* Removed daisyUI due to Tailwind v4 plugin API incompatibility */
+
+/* Removed daisyUI theme plugin due to Tailwind v4 plugin API incompatibility. */
+
+/* Add variants based on LiveView classes */
+@custom-variant phx-click-loading (.phx-click-loading&, .phx-click-loading &);
+@custom-variant phx-submit-loading (.phx-submit-loading&, .phx-submit-loading &);
+@custom-variant phx-change-loading (.phx-change-loading&, .phx-change-loading &);
+
+/* Use the data attribute for dark mode  */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Make LiveView wrapper divs transparent for layout */
+[data-phx-session], [data-phx-teleported-src] { display: contents }
+
+/* This file is for your main application CSS */
+
+
+/* Minimal component styles to replace removed daisyUI classes */
+:root {
+  --emerald-300: #f1f0f0;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --surface-900: #0b0b0b;
+  --surface-800: #111111;
+  --border-weak: rgba(12, 35, 17, 0.82);
+  --border-emerald: rgba(16, 185, 129, 0.35);
+  --wave-color0: #0d0e0d;
+  --wave-color1: #000000;
+}
+
+[data-theme="garden"] {
+  --emerald-300: #f1f0f0; /* Warm brown text */
+  --emerald-400: #c4a484; /* Light tan silk */
+  --emerald-500: #a67c52; /* Medium tan silk */
+  --emerald-600: #8b5a2b; /* Deep tan silk */
+  --surface-900: #faf8f5; /* Light cream background */
+  --surface-800: #f7f4f0; /* Warm cream card background */
+  --border-weak: rgba(196, 164, 132, 0.25); /* Light tan border */
+  --border-emerald: rgba(166, 124, 82, 0.5); /* Tan accent border */
+  --wave-color0: rgba(196, 164, 132, 0.15); /* Light tan for waves */
+  --wave-color1: rgba(166, 124, 82, 0.22); /* Medium tan for waves */
+}
+
+[data-theme="dailyui"] {
+  --emerald-300: #d4edda; /* Light forest green */
+  --emerald-400: #68a085; /* Medium forest green */
+  --emerald-500: #2d5a3d; /* Deep forest green */
+  --emerald-600: #1e3a28; /* Dark forest green */
+  --surface-900: #0f1b0f; /* Dark forest background */
+  --surface-800: #1a2e1a; /* Forest card background */
+  --border-weak: rgba(212, 237, 218, 0.15); /* Light forest border */
+  --border-emerald: rgba(104, 160, 133, 0.6); /* Forest accent border */
+  --wave-color0: rgba(104, 160, 133, 0.25); /* Light forest for waves */
+  --wave-color1: rgba(45, 90, 61, 0.35); /* Deep forest for waves */
+}
+
+.card {
+  background-color: color-mix(in oklch, var(--surface-900) 80%, black 20%);
+  border: 1px solid var(--border-weak);
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover { 
+  border-color: var(--border-emerald);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+.card-body { padding: 1rem 1.25rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-outline {
+  border: 1px solid var(--border-emerald);
+  color: var(--emerald-300);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.btn-primary { background-color: var(--emerald-600); color: black; border-color: var(--emerald-500); }
+.btn-primary:hover { background-color: var(--emerald-500); }
+.btn-soft { background-color: color-mix(in oklch, var(--emerald-500) 18%, black 82%); color: var(--emerald-300); border-color: var(--border-emerald); }
+.btn-soft:hover { background-color: color-mix(in oklch, var(--emerald-500) 28%, black 72%); }
+
+.input, .select, .textarea {
+  width: 100%;
+  color: #e5e7eb;
+  background-color: var(--surface-800);
+  border: 1px solid var(--border-weak);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--emerald-500) 30%, transparent 70%);
+  border-color: var(--emerald-500);
+}
+.input-bordered { border-color: var(--border-weak); }
+
+.checkbox {
+  width: 1rem; height: 1rem; border: 1px solid var(--border-weak); border-radius: 0.25rem;
+  accent-color: var(--emerald-500);
+}
+
+/* Minimal flash/toast styles used by CoreComponents */
+.toast { position: fixed; inset-inline-end: 1rem; inset-block-start: 1rem; display: grid; gap: .5rem; }
+.toast-top { inset-block-start: 1rem; }
+.toast-end { inset-inline-end: 1rem; }
+.alert { display: flex; align-items: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1rem; border: 1px solid var(--border-weak); background-color: var(--surface-800); }
+.alert-info { border-color: color-mix(in oklch, skyblue 30%, black 70%); }
+.alert-error { border-color: color-mix(in oklch, crimson 40%, black 60%); }
+
+/* Minimal modal styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: relative;
+  margin: 5vh auto;
+  width: min(100% - 2rem, 900px);
+  background: var(--surface-800);
+  border: 1px solid var(--border-weak);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; border-bottom: 1px solid var(--border-weak); }
+.modal-body { padding: 0; }
+.modal-iframe { width: 100%; height: 70vh; border: 0; }
+
+/* Panel + utility helpers (replace removed DaisyUI tokens) */
+.panel { background-color: color-mix(in oklch, var(--surface-800) 95%, black 5%); border: 1px solid var(--border-weak); }
+.text-dim { color: #9ca3af; }
+.divide-weak > * + * { border-top: 1px solid var(--border-weak); }
+
+/* Badge wrap helper for long labels */
+.badge-wrap {
+  white-space: normal;
+  line-height: 1.2;
+  text-align: center;
+}
+
+h2, h3 {
+  font-weight: 700; /* Equivalent to Tailwind's font-bold */
+}
+
+/* Theme-aware utilities (use CSS variables instead of hardcoded Tailwind colors) */
+.text-brand { color: var(--emerald-300); }
+.border-brand { border-color: var(--border-weak); }
+.hover\:border-brand-strong:hover { border-color: var(--border-emerald); }
+
+/* Additional theme-aware utilities (override tailwind colors when used) */
+.text-theme-primary { color: var(--emerald-300) !important; }
+.text-theme-accent { color: var(--emerald-400) !important; }
+.border-theme-primary { border-color: var(--emerald-600) !important; }
+.bg-theme-surface { background-color: var(--surface-800) !important; }
+.bg-brand-soft { background-color: color-mix(in oklch, var(--emerald-500) 20%, transparent 80%) !important; }
+
+/* Holographic Card Styles */
+.holo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.95rem; /* match .card */
+  --mouse-x: 10%;
+  --mouse-y: 10%;
+  --holographic-intensity: 0.001;
+  --glow-intensity: 0.1;
+  --holographic-gradient: linear-gradient(135deg, rgb(14, 215, 51) 0%, rgba(12, 74, 30, 0.15) 50%, rgba(8, 63, 32, 0.25) 100%);
+  --holographic-gradient-dark: linear-gradient(135deg, rgba(19, 100, 49, 0.25) 0%, rgba(3, 133, 19, 0.15) 50%, rgba(4, 55, 31, 0.25) 100%);
+  --holo-bg: rgba(8, 8, 8, 0.75);
+  --holo-bg-dark: rgba(0, 0, 0, 0.9);
+  --holo-scanlines: none;
+  --holo-glow-radius: 18%;
+  --holo-glow-opacity: 0;
+  background-color: var(--holo-bg);
+  
+}
+
+.holo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background-image: var(--holographic-gradient), var(--holo-scanlines);
+  pointer-events: none;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+[data-theme=dark] .holo-card {
+  background-color: var(--holo-bg-dark);
+}
+
+[data-theme=dark] .holo-card::before {
+  background-image: var(--holographic-gradient-dark), var(--holo-scanlines);
+  opacity: 0.2;
+}
+
+.holo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(19, 18, 18, 0.15) 0%, transparent var(--holo-glow-radius));
+  opacity: var(--holo-glow-opacity);
+  transition: opacity 600ms ease;
+  pointer-events: none;
+}
+
+[data-theme=dark] .holo-card::after {
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.2) 0%, transparent var(--holo-glow-radius));
+}
+
+
+
+
+
+.holo-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
+  background: var(--refraction-pattern, none);
+  pointer-events: none;
+}
+
+[data-theme=dark] .holo-content::before {
+  opacity: 0.4;
+  background: var(--refraction-pattern-dark, none);
+}
