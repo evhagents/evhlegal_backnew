@@ -6,6 +6,27 @@
 
 # General application configuration
 import Config
+config :evhlegalchat, Evhlegalchat.Enrich,
+  nda: [
+    min_confidence_numeric: 0.6,
+    party_role_defaults: :mutual
+  ],
+  sow: [
+    min_confidence_numeric: 0.6,
+    deliverable_title_max: 255
+  ],
+  common: [
+    heading_matchers: [
+      nda_term: ~r/^(term|duration)/i,
+      deliverables: ~r/^deliverables?|^scope of work/i,
+      milestones: ~r/^milestones?/i,
+      pricing: ~r/^pricing|^fees|^compensation/i,
+      invoicing: ~r/^invoic/i,
+      expenses: ~r/^expenses?/i,
+      assumptions: ~r/^assumptions?|^dependencies/i,
+      signatures: ~r/^(in witness whereof|signature)/i
+    ]
+  ]
 
 # Load .env file in development and test environments
 if Mix.env() in [:dev, :test] do
@@ -52,6 +73,16 @@ config :logger, :default_formatter,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Mapping defaults (Step 6)
+config :evhlegalchat, Evhlegalchat.Mapping.Config,
+  auto_commit_threshold: 0.80,
+  review_threshold: 0.60,
+  allow_downgrade: false,
+  prefer_newer_equal_conf: true,
+  protected_columns: %{
+    "agreements" => ~w(effective_date governing_law venue status review_status storage_key)a
+  }
 
 # CORS configuration
 config :cors_plug,

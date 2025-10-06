@@ -1,0 +1,39 @@
+1. DEFINITIONS
+
+For purposes of this Agreement, the following terms shall have the meanings set forth below:
+
+1.1 "Company" means ABC Corporation, a Delaware corporation.
+
+1.2 "Employee" means John Smith, an individual residing in California.
+
+5. CONFIDENTIALITY OBLIGATIONS
+
+5.1 Employee agrees to maintain the confidentiality of all Confidential Information.
+
+5.2 Employee shall not disclose Confidential Information to any third party.
+
+5.3 Employee shall use Confidential Information solely for the benefit of Company.
+
+5. CONFIDENTIALITY OBLIGATIONS (DUPLICATE)
+
+5.1 Employee agrees to maintain the confidentiality of all Confidential Information.
+
+5.2 Employee shall not disclose Confidential Information to any third party.
+
+5.3 Employee shall use Confidential Information solely for the benefit of Company.
+
+6. TERM AND TERMINATION
+
+6.1 This Agreement shall commence on the Effective Date and continue for a period of two (2) years.
+
+6.2 Either party may terminate this Agreement upon thirty (30) days written notice.
+
+6.3 Upon termination, Employee shall return all Confidential Information to Company.
+
+7. GENERAL PROVISIONS
+
+7.1 This Agreement shall be governed by the laws of the State of California.
+
+7.2 This Agreement constitutes the entire agreement between the parties.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.

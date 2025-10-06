@@ -2,7 +2,7 @@ defmodule Evhlegalchat.Repo.Migrations.CreateNdaAnatomy do
   use Ecto.Migration
 
   def change do
-    create table("nda_anatomy") do
+    create_if_not_exists table("nda_anatomy") do
       add :original_name, :text, null: false
       add :party_disclosing, :text
       add :party_receiving, :text

@@ -4,7 +4,7 @@ defmodule Evhlegalchat.Repo.Migrations.CreateDecisionRules do
   def change do
     execute("CREATE EXTENSION IF NOT EXISTS pgcrypto", "DROP EXTENSION IF EXISTS pgcrypto")
 
-    create table(:decision_rules, primary_key: false) do
+    create_if_not_exists table(:decision_rules, primary_key: false) do
       add :id, :binary_id, primary_key: true, default: fragment("gen_random_uuid()")
 
       add :id_slug, :text, null: false
@@ -18,11 +18,11 @@ defmodule Evhlegalchat.Repo.Migrations.CreateDecisionRules do
       add :created_by, :text
     end
 
-    create constraint(:decision_rules, :status_allowed_values,
+    create_if_not_exists constraint(:decision_rules, :status_allowed_values,
              check: "status in ('draft','active','deprecated')"
            )
 
-    create constraint(:decision_rules, :priority_allowed_values,
+    create_if_not_exists constraint(:decision_rules, :priority_allowed_values,
              check: "priority in ('critical','high','medium','low')"
            )
   end

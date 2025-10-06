@@ -25,6 +25,7 @@ defmodule EvhlegalchatWeb do
       # Import common connection and controller functions to use in pipelines
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
@@ -41,6 +42,48 @@ defmodule EvhlegalchatWeb do
       use Gettext, backend: EvhlegalchatWeb.Gettext
 
       import Plug.Conn
+
+      unquote(verified_routes())
+    end
+  end
+
+  def live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {EvhlegalchatWeb.Layouts, :app}
+
+      use Gettext, backend: EvhlegalchatWeb.Gettext
+
+      unquote(html_helpers())
+    end
+  end
+
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
+
+      use Gettext, backend: EvhlegalchatWeb.Gettext
+
+      unquote(html_helpers())
+    end
+  end
+
+  def html do
+    quote do
+      use Phoenix.Component
+
+      use Gettext, backend: EvhlegalchatWeb.Gettext
+
+      unquote(html_helpers())
+    end
+  end
+
+  defp html_helpers do
+    quote do
+      import Phoenix.Component
+      import Phoenix.LiveView
+      alias Phoenix.LiveView.JS
+      alias EvhlegalchatWeb.Layouts
 
       unquote(verified_routes())
     end

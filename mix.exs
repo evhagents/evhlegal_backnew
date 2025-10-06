@@ -60,7 +60,8 @@ defmodule Evhlegalchat.MixProject do
       {:cors_plug, "~> 3.0"},
       {:dotenv, "~> 3.0.0", only: [:dev, :test]},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.4", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.4", runtime: Mix.env() == :dev},
+      {:oban, "~> 2.17"}
     ]
   end
 

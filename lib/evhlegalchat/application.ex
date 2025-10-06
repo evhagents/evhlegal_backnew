@@ -10,6 +10,7 @@ defmodule Evhlegalchat.Application do
     children = [
       EvhlegalchatWeb.Telemetry,
       Evhlegalchat.Repo,
+      {Oban, Application.fetch_env!(:evhlegalchat, Oban)},
       {DNSCluster, query: Application.get_env(:evhlegalchat, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Evhlegalchat.PubSub},
       # Start a worker by calling: Evhlegalchat.Worker.start_link(arg)
